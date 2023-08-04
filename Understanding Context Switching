@@ -1,0 +1,22 @@
+# Context Switching
+kernel routine switches processes on a cpu.
+
+Voluntary - when the time slice is expired, process releases cpu
+Involuntary -  when the time slice is not expired, still process releases cpu
+
+#system call
+
+Application run in two modes -- User mode & Kernel mode (accessing hw)
+
+$ time df -h
+
+$ /usr/bin/time -v df -h
+
+#Voluntary context switches: 1
+#Involuntary context switches: 3
+
+$ /usr/bin/time -v free -w
+#Voluntary context switches: 5
+#Involuntary context switches: 4
+
+$ /usr/bin/time -v dd if=/dev/zero of=/bigfile bs=1M count=400
