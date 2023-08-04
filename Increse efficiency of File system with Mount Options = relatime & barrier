@@ -1,0 +1,33 @@
+# 1. Understanding "relatime" mount option in /etc/fstab
+
+POSIX family of standarads for OS required that OS must maintain a filesystem metadata that records each time when a file was last accessed, last modified, last changes.
+
+File metadata need to be changed : <ctime, atime,mtime>
+Creation Time:
+Access Time:
+Modification Time:
+# doing a write (changing atime) for every READ is dunting. Has implications on efficiency.
+It solved by using "relatime" atime is updated when the file is been modified since last atime updated.
+
+#by default in RHEL 6 onwards.
+ 
+$ stat filename.txt #shows the time stamps
+
+$ cat /proc/mounts  #check for mount options "relatime" 
+
+#2. Understanding "barrier" mount option in /etc/fstab
+
+Control JBD (Journalling Block Device). barrier can have two values
+
+1 --> enable
+0 --> disable
+
+Filesystem enforce a proper journal commit. It is actually used to reduce the data corruption chances, IN CASE OF POWER FAILURES.
+
+Enabling write barrier means constntly flushing write cache ---  REDUCE PERFORMANCE.
+
+$ cat /proc/mounts  #check for "barrier=1"
+
+$change barrier =0
+
+$ mount -o remount /
