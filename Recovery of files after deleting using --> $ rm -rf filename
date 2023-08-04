@@ -1,0 +1,22 @@
+#create a file
+$ echo "this is a test file" > demo.txt
+
+
+#inode details 
+$ stat demo.txt
+
+#Address block of a file
+$ filefrag -b512 -v demo.txt
+
+#copy file into another file
+$sudo dd if=/dev/sda3 of=copy_demo.txt skip=1417938528 count=8    #start address block
+
+#trace deletion process of dem.txt (faccessat,unlinkat )
+$strace -f -t -T -x -o del-demo-syscall.txt -s 1024 rm demo.txt
+
+
+#Recover file from the address
+$ sudo dd if=/dev/sda3 of=recover_demo.txt skip=1417938528 count=8
+
+#read content of the deleted file
+$ cat recover_demo.txt
