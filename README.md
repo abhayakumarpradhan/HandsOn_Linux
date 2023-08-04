@@ -6,3 +6,5 @@ What happens after deleting a file in Linux? Can we recover?
 
 # "relatime"  & "barrier"
 Enhancing efficiency of File system of Linux machine.
+
+# Contex Switching = Vol vs InVol
