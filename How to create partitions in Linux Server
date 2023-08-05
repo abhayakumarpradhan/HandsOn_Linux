@@ -1,0 +1,30 @@
+# Linux server Partitions
+
+1. mount point -- /boot		Standard Partition     1GB
+	kernel resides here
+	Linux kernel required space = 60 MB 
+
+2. /  (root)       Std. Partition          10 GB
+
+3. /home   User's Data       (Depends on # of users)
+
+4. /var	   for Applications			3GB
+
+5. /var/log	for logs			4GB
+
+(eg. /var/lib/mysql  create a new mount -- if you install mysql server)
+
+6. /usr		applications			5GB
+
+7. /tmp	#world writable (i.e. any user can write) --- always make a diffrent mount point
+ #if you don't create a different partition then it will be created inside /
+
+8. /swap                                        4GB
+
+	RAM      Swap 
+	< 2GB	 2*RAM
+	2-8 GB	 1 * RAM
+	8-64 GB	 4GB
+	> 64GB	 4GB
+
+9. Encript the prtition which contains sensitive data. (eg. /home)
