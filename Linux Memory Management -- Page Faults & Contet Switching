@@ -1,0 +1,23 @@
+# Linux Memory Management
+
+Mapping of Virtual Address Table ---> Memory (Primary)
+Usage of swap memory in HDD
+
+# Page Faults
+
+1. Minor Pgae fault : data is in RAM but the process doesn't know the page address
+2. Major Page fault : data in storage / swap but not in RAM i.e. loading data using swap-in & swap-out (involve Disk I/O)
+
+*** when OS access the process first time -- requires more CPU cycle & Major Page Faults happen
+
+*** For accessing 2nd time onwards -- Minor Page Faults
+
+$ free -w   #check for user & cache
+
+$/usr/bin/time -v cal  # check for Major PF & Minor PF
+
+$ free -w   #check for user & cache (increased)
+
+$ /usr/bin/time -v cal  # check for Major PF & Minor PF & % of CPU used
+
+*** Also refer context switching. (invol. CS -- for disk I/O or arrival of High Priority Process)
