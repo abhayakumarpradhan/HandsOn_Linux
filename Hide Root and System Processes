@@ -1,0 +1,26 @@
+# Hide Root and System Processes
+
+$ whoami
+$ ps -aux
+$ top
+
+** Normal user can see all the system processes
+
+# Where process stay ?
+
+$ cd /proc
+
+$ ll
+# hidepid =0 {default} -- normal user can see all processes
+#hidepid =1 -- normal user can't see other user's processes. but he can see the pids in /proc
+# hidepid =2 -- no other user's processes and pids under /proc
+
+$  su  #become superuser
+$ mount -o remount,rw,hidepid=2 /proc   #make it secure but temporary mount
+
+# make is permanent
+
+$ vim /etc/fstab
+add line : proc /proc proc defaults,hidepid=2 0 0
+
+$ mount -a
