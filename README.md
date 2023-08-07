@@ -14,3 +14,5 @@ Learn Page Faults -- Minor & Major
 
 # Linux Server Basic Partition (Manual Partition vs Automatic Partition)
 If you go for Automatic ---> All HDD space will become a single partition and OS will be installed there. 
+
+# Disk Monitoring with duf tool
