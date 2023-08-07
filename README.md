@@ -16,3 +16,5 @@ Learn Page Faults -- Minor & Major
 If you go for Automatic ---> All HDD space will become a single partition and OS will be installed there. 
 
 # Disk Monitoring with duf tool
+
+# Process monitoring using bpytop
