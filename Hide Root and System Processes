@@ -18,7 +18,7 @@ $ ll
 $  su  #become superuser
 $ mount -o remount,rw,hidepid=2 /proc   #make it secure but temporary mount
 
-# make is permanent
+# make it permanent
 
 $ vim /etc/fstab
 add line : proc /proc proc defaults,hidepid=2 0 0
