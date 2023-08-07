@@ -18,3 +18,5 @@ If you go for Automatic ---> All HDD space will become a single partition and OS
 # Disk Monitoring with duf tool
 
 # Process monitoring using bpytop
+GUI based and mouse activated 
+$ snap install bpytop
