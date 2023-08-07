@@ -1,0 +1,22 @@
+# Disk Monitoring using DUF - Disk Usage/Free Utility (Linux, BSD, macOS & Windows)
+
+** df tool is vanila flavour 
+** dfu is more organized and presentable
+
+Features :
+
+- overview of all mounted devices
+- Themes
+- List of inodes
+- export in JSON
+- sort options
+
+Find more on:  https://github.com/muesli/duf
+
+# Install in ubuntu distro
+
+$ wget https://github.com/muesli/duf/releases/download/v0.8.1/duf_0.8.1_linux_amd64.deb
+
+$ sudo dpkg -i duf_0.8.1_linux_amd64.deb 
+
+$ duf 
