@@ -2,12 +2,12 @@
 
 SCP - plain linear copy
 
-demo.txt 1 GB fle from Machine A --------- Machine B
-edited the same file and added few data.
+demo.txt 1 GB file from Machine A --------- Machine B
+edited the same file and added a few data.
 
 demo.txt size = 1.5 GB
 
-now if you copy demo.txt from A to B
+Now if you copy demo.txt from A to B
 
 Then it will copy the entire file rewrite the complete file. (not only updated portion but the complete file)
 
@@ -17,14 +17,17 @@ $ dd if=/dev/zero of=bigfile bs=2M count=500
 $ scp bigfile abhaya@10.5.0.88
 $ echo "edited file & added a new file" >> bigfile
 $ /usr/bin/time -v scp bigfile abhaya@10.5.0.88
-# now it will again start from 0%.
+# Now it will again start from 0%.
 
-Check for User time & System time ?
+Check for User time & System time.
 
 
 # RSYNC is efficient and does DELTA COPY (Changes only copied)
-# uses DELTA Tranfer Algorithm
+# uses DELTA Transfer Algorithm
 
 $ rsync -p bigfile abhaya@10.5.0.88
 $ echo "lets do some changes to the bigfile" >> bigfile
 $ /usr/bin/time -v rsync bigfile abhaya@10.5.0.88
+
+
+*** DELTA TRANSFER ALGO: checks changes in checksums for each data block.
