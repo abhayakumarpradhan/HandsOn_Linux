@@ -20,3 +20,6 @@ If you go for Automatic ---> All HDD space will become a single partition and OS
 # Process monitoring using bpytop
 GUI based and mouse activated 
 $ snap install bpytop
+
+# SCP vs RSYNC
+Plain Linear Copy vs Delta Copy
