@@ -1,0 +1,30 @@
+# rsnapshot - Remote File System Snapshot
+- Backup remote Linux servers using rsync over ssh
+- Local snapshots are handled by rsync
+- Remote snapshots are handled by rsync over ssh
+- It can take incremental snapshots of local & remote file systems for any number of machines.
+- It saves HDD space to a great extent. If a file doesn't change then the next snapshot will create a hadlink to the same file.
+Process :
+
+1. Download rsnapshot from repo
+2. Prepare your server for password less authentication using ssh on remote serve
+r using ssh-keygen -t dsa command & send key to the remote server using ssh-copy
+-id command.
+3. Edit the /etc/snapshot.conf file
+4. Check the rsnapshot config using rsnapshot configtest command.
+5. Use the crontab for taking backup at regular intervals.
+ 
+$ ssh-keygen -t dsa
+$ ssh-copy-id -i id_dsa.pub root@10.5.0.88
+$ ssh 10.5.0.88 # password less authentication
+$ vim /etc/snapshot.conf
+
+uncomment cmd_rsync	/usr/bin/rsync
+add backup	root@10.5.0.88/etc	myserver-etc/ #folder-name
+
+$rsnapshot configtest
+
+$ where is rsnapshot #bin path
+$/usr/bin/rsnapshot hourly
+
+Now check your backups under the hidden folder .snapshots/
