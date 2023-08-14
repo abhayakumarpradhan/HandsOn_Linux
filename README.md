@@ -23,3 +23,6 @@ $ snap install bpytop
 
 # SCP vs RSYNC
 Plain Linear Copy vs Delta Copy
+
+# rsnapshot
+Remote server backup
